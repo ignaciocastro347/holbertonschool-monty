@@ -1,10 +1,12 @@
 #include "monty.h"
+
 /**
- * split - create an array of strings from a string separated by chars
- * @buffer: string value to delimit
- * @delim: string with chars which ar delimiters
- * Return: array of string
- */
+* split - create an array of strings from a string separated by chars
+* @buffer: string value to delimit
+* @delim: string with chars which ar delimiters
+* Return: array of string
+*/
+
 char **split(char *buffer, char *delim)
 {
 	char **list = NULL;
@@ -31,12 +33,14 @@ char **split(char *buffer, char *delim)
 	free(dbuffer);
 	return (list);
 }
+
 /**
- * count_tokens - Count tokens
- * @str: String
- * @delims: Delimiters
- * Return: Number of tokens
+* count_tokens - Count tokens
+* @str: String
+* @delims: Delimiters
+* Return: Number of tokens
 */
+
 int count_tokens(char *str, char *delims)
 {
 	int counter = 0, i = 0, j = 0;

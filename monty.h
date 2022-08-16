@@ -47,7 +47,6 @@ typedef struct instruction_s
 
 char **split(char *, char *);
 int count_tokens(char *, char *);
-
-
+int *get_op_func (char *s);
 
 #endif
