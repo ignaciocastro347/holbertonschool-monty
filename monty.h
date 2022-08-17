@@ -11,6 +11,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/* ########## GLOBAL VARIABLES ########### */
+extern char *global_n_value;
 
 /* ########## STRUCURES ########### */
 /**
@@ -47,7 +49,10 @@ typedef struct instruction_s
 
 char **split(char *, char *);
 int count_tokens(char *, char *);
-
+size_t print_nodes(const stack_t *);
+stack_t *add_node_to_end(stack_t **, const int);
+stack_t *add_node_to_beg(stack_t **, const int);
+void push_opcode (stack_t **, unsigned int)
 
 
 #endif
