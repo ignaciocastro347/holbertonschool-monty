@@ -70,3 +70,18 @@ stack_t *add_node_to_beg(stack_t **head, const int n)
 	return (new);
 }
 
+/**
+ * free_dlistint - free a dlinked list
+ * @head: dlinked list
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *aux;
+
+	while (head)
+	{
+		aux = head->next;
+		free(head);
+		head = aux;
+	}
+}

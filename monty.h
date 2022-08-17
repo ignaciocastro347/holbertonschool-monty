@@ -1,5 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
+/* ########## GLOBAL VARIABLES ########### */
+extern char *global_n_value;
 
 #define _GNU_SOURCE
 
@@ -11,8 +13,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-/* ########## GLOBAL VARIABLES ########### */
-extern char *global_n_value;
 
 /* ########## STRUCURES ########### */
 /**
@@ -49,10 +49,16 @@ typedef struct instruction_s
 
 char **split(char *, char *);
 int count_tokens(char *, char *);
-size_t print_nodes(const stack_t *);
-stack_t *add_node_to_end(stack_t **, const int);
-stack_t *add_node_to_beg(stack_t **, const int);
-void push_opcode (stack_t **, unsigned int)
+size_t print_nodes(const stack_t *stack);
+stack_t *add_node_to_end(stack_t **stack, const int n);
+stack_t *add_node_to_beg(stack_t **satck, const int n);
+void push_opcode (stack_t **stack, unsigned int line_number);
+void pall_opcode (stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s))(stack_t ** pepe, unsigned int h);
+
+int free_string_list(char **list);
+void free_dlistint(stack_t *head);
+
 
 
 #endif

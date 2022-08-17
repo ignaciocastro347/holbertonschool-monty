@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *global_n_value = NULL;
+
 /**
  * main - Monty files interpreter
  * @argc: amount of arguments
@@ -12,8 +14,7 @@ int main (int argc, char **argv)
 	char buff[1024];
 	FILE *fp;
 	char *line = NULL, **tokens = NULL;
-	int i;
-	stack_t **stack = NULL;
+	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	void (*f)(stack_t **, unsigned int);
 
@@ -37,12 +38,12 @@ int main (int argc, char **argv)
 		f = get_op_func(tokens[0]);
 		if (f)
 			f(&stack, line_number);
-		else
-			printf("no se que es eso");
-		// while (tokens[i])
-		// 	printf("%s\n", tokens[i++]);
+
+		free_string_list(tokens);
 	}
 
-	print_nodes(stack);
+	free_dlistint(stack);
+	fclose(fp);
+
 	return (0);
 }

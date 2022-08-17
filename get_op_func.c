@@ -5,14 +5,14 @@
 * Return: Always
 */
 
-int (*get_op_func(char *s))(stack_t **, unsigned int)
+void (*get_op_func(char *s))(stack_t ** pepe, unsigned int h)
 {
 	int i = 0;
 
 	instruction_t opcodes[] = {
 		{"push", push_opcode},
-		/* {"pall", pall_opcode},
-		{"pint", pint_opcode},
+		{"pall", pall_opcode},
+		/*{"pint", pint_opcode},
 		{"pop", pop_opcode},
 		{"swap", swap_opcode},
 		{"add", add_opcode},
@@ -20,7 +20,7 @@ int (*get_op_func(char *s))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	while (!opcodes[i].opcode)
+	while (opcodes[i].opcode)
 	{
 		if (strcmp(opcodes[i].opcode, s) == 0)
 		{
