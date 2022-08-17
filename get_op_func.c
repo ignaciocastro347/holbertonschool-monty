@@ -1,22 +1,18 @@
 #include "monty.h"
-/**
-* get_op_func - seach a function
-* @s: is a pointer
-* Return: Always
-*/
 
-void (*get_op_func(char *s))(stack_t ** pepe, unsigned int h)
+/**
+ * get_op_func - seach a function
+ * @s: is a pointer
+ * Return: Always
+ */
+
+void (*get_op_func(char *s))(stack_t **pepe, unsigned int h)
 {
 	int i = 0;
 
 	instruction_t opcodes[] = {
 		{"push", push_opcode},
 		{"pall", pall_opcode},
-		/*{"pint", pint_opcode},
-		{"pop", pop_opcode},
-		{"swap", swap_opcode},
-		{"add", add_opcode},
-		{"nop", nop_opcode},*/
 		{NULL, NULL}
 	};
 
@@ -28,5 +24,5 @@ void (*get_op_func(char *s))(stack_t ** pepe, unsigned int h)
 		}
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }

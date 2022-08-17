@@ -5,11 +5,11 @@ char *global_n_value = NULL;
 /**
  * main - Monty files interpreter
  * @argc: amount of arguments
- * @argv: list of arguments 
+ * @argv: list of arguments
  * Return: void
  */
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char buff[1024];
 	FILE *fp;
