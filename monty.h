@@ -12,6 +12,7 @@ extern char *global_n_value;
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
 
 
 /* ########## STRUCURES ########### */
@@ -54,7 +55,7 @@ stack_t *add_node_to_end(stack_t **stack, const int n);
 stack_t *add_node_to_beg(stack_t **satck, const int n);
 void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);
-void (*get_op_func(char *s))(stack_t **pepe, unsigned int h);
+void (*get_op_func(char *s, unsigned int line_number))(stack_t **pepe, unsigned int h);
 
 int free_string_list(char **list);
 void free_dlistint(stack_t *head);

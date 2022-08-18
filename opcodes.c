@@ -9,6 +9,13 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	int n = 0;
 
+	/**if (isdigit(global_n_value) == 0)
+	{
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+		n = atoi(global_n_value);*/
 	n = atoi(global_n_value);
 	if (!n && strcmp(global_n_value, "0") != 0)
 	{
