@@ -14,6 +14,8 @@ void (*get_op_func(char *s, unsigned int n))(stack_t **, unsigned int)
 	instruction_t opcodes[] = {
 		{"push", push_opcode},
 		{"pall", pall_opcode},
+		{"swap", swap_opcode},
+		{"add", add_opcode},
 		{NULL, NULL}
 	};
 

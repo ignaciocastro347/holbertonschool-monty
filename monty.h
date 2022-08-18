@@ -53,13 +53,15 @@ int count_tokens(char *, char *);
 size_t print_nodes(const stack_t *stack);
 stack_t *add_node_to_end(stack_t **stack, const int n);
 stack_t *add_node_to_beg(stack_t **satck, const int n);
+void swap_last_nodes(stack_t **head);
+void add_last_nodes(stack_t **head);
 void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);
-void (*get_op_func(char *s, unsigned int line_number))(stack_t **pepe, unsigned int h);
+void swap_opcode(stack_t **stack, unsigned int line_number);
+void add_opcode(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s, unsigned int))(stack_t **, unsigned int);
 
 int free_string_list(char **list);
 void free_dlistint(stack_t *head);
-
-
 
 #endif

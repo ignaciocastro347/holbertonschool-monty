@@ -42,6 +42,39 @@ stack_t *add_node_to_beg(stack_t **head, const int n)
 }
 
 /**
+ * swap_last_nodes - swap last two nodes from dlinked list
+ * @head: dlinked list
+ */
+void swap_last_nodes(stack_t **head)
+{
+	stack_t *first = *head;
+	stack_t *second = (*head)->next;
+	stack_t *third = second->next;
+
+	third->prev = second->prev;
+	first->prev = first->next;
+	first->next = second->next;
+	second->prev = NULL;
+	second->next = third->prev;
+	*head = second;
+}
+
+/**
+ * add_last_nodes - add last two nodes from dlinked list
+ * @head: dlinked list
+ */
+void add_last_nodes(stack_t **head)
+{
+	stack_t *first = *head;
+	stack_t *second = (*head)->next;
+
+	second->n = first->n + second->n;
+	second->prev = NULL;
+	*head = second;
+	free(first);
+}
+
+/**
  * free_dlistint - free a dlinked list
  * @head: dlinked list
  */
