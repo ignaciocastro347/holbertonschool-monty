@@ -63,7 +63,7 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap_opcode - execute a swap function
+ * add_opcode - execute an add function
  * @stack: is a pointer to a doubly linked list
  * @line_number: a counter of read lines of file
  */

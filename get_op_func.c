@@ -18,6 +18,7 @@ void (*get_op_func(char *s, unsigned int n))(stack_t **, unsigned int)
 		{"pop", pop_opcode},
 		{"swap", swap_opcode},
 		{"add", add_opcode},
+		{"nop", nop_opcode},
 		{NULL, NULL}
 	};
 

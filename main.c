@@ -1,7 +1,5 @@
 #include "monty.h"
 
-/* char *global_n_value = NULL;*/
-
 /**
  * main - Monty files interpreter
  * @argc: amount of arguments
@@ -42,9 +40,7 @@ int main(int argc, char **argv)
 			if (f)
 				f(&stack, line_number);
 		}
-
 	}
-
 	free_dlistint(stack);
 	fclose(fp);
 

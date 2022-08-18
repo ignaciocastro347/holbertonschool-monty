@@ -1,7 +1,5 @@
 #ifndef MONTY_H
 #define MONTY_H
-/* ########## GLOBAL VARIABLES ########### */
-extern char *global_n_value;
 
 #define _GNU_SOURCE
 
@@ -48,7 +46,6 @@ typedef struct instruction_s
 
 /* ########## PROTOTYPES ########### */
 
-char **split(char *, char *);
 int count_tokens(char *, char *);
 size_t print_nodes(const stack_t *stack);
 stack_t *add_node_to_end(stack_t **stack, const int n);
@@ -64,6 +61,7 @@ void pint_opcode(stack_t **stack, unsigned int line_number);
 void pop_opcode(stack_t **stack, unsigned int line_number);
 void swap_opcode(stack_t **stack, unsigned int line_number);
 void add_opcode(stack_t **stack, unsigned int line_number);
+void nop_opcode(void);
 void (*get_op_func(char *s, unsigned int))(stack_t **, unsigned int);
 
 int free_string_list(char **list);

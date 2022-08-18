@@ -62,8 +62,8 @@ void pop_last_node(stack_t **head)
 
 	*head = first->next;
 	if (*head)
-		(*head)-> prev = NULL;
-  free(first);
+		(*head)->prev = NULL;
+	free(first);
 }
 /**
  * swap_last_nodes - swap last two nodes from dlinked list
@@ -81,35 +81,4 @@ void swap_last_nodes(stack_t **head)
 	second->prev = NULL;
 	second->next = third->prev;
 	*head = second;
-}
-
-/**
- * add_last_nodes - add last two nodes from dlinked list
- * @head: dlinked list
- */
-void add_last_nodes(stack_t **head)
-{
-	stack_t *first = *head;
-	stack_t *second = (*head)->next;
-
-	second->n = first->n + second->n;
-	second->prev = NULL;
-	*head = second;
-	free(first);
-}
-
-/**
- * free_dlistint - free a dlinked list
- * @head: dlinked list
- */
-void free_dlistint(stack_t *head)
-{
-	stack_t *aux = NULL;
-
-	while (head)
-	{
-		aux = head->next;
-		free(head);
-		head = aux;
-	}
 }
