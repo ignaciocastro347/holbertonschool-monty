@@ -33,9 +33,11 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		line = strtok(buff, "\n");
-		tokens = split(line, " \t");
+		if (!line)
+			continue;
+		tokens = split(line, " \t\r");
 		global_n_value = tokens[1] ? tokens[1] : NULL;
-		f = get_op_func(tokens[0]);
+		f = get_op_func(tokens[0], line_number);
 		if (f)
 			f(&stack, line_number);
 
