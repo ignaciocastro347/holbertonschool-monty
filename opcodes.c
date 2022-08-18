@@ -8,7 +8,7 @@
 void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	int n = 0;
-
+	char *token = NULL;
 	/**if (isdigit(global_n_value) == 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
@@ -16,8 +16,14 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 	}
 	else
 		n = atoi(global_n_value);*/
-	n = atoi(global_n_value);
-	if (!n && strcmp(global_n_value, "0") != 0)
+	token = strtok(NULL, " \t\r");
+	if (!token)
+	{
+		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(token);
+	if (!n && strcmp(token, "0") != 0)
 	{
 		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);

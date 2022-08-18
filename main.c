@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *global_n_value = NULL;
+/* char *global_n_value = NULL;*/
 
 /**
  * main - Monty files interpreter
@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 {
 	char buff[1024];
 	FILE *fp;
-	char *line = NULL, **tokens = NULL;
+	char *line = NULL, *token = NULL;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	void (*f)(stack_t **, unsigned int);
@@ -35,13 +35,14 @@ int main(int argc, char **argv)
 		line = strtok(buff, "\n");
 		if (!line)
 			continue;
-		tokens = split(line, " \t\r");
-		global_n_value = tokens[1] ? tokens[1] : NULL;
-		f = get_op_func(tokens[0], line_number);
-		if (f)
-			f(&stack, line_number);
+		token = strtok(line, " \t\r");
+		if (token)
+		{
+			f = get_op_func(token, line_number);
+			if (f)
+				f(&stack, line_number);
+		}
 
-		free_string_list(tokens);
 	}
 
 	free_dlistint(stack);
