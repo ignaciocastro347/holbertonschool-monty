@@ -55,7 +55,11 @@ stack_t *add_node_to_end(stack_t **stack, const int n);
 stack_t *add_node_to_beg(stack_t **satck, const int n);
 void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);
+void pint_opcode(stack_t **stack, unsigned int line_number);
+void pop_opcode(stack_t **stack, unsigned int line_number);
 void (*get_op_func(char *s, unsigned int line_number))(stack_t **pepe, unsigned int h);
+void print_last_node(const stack_t *h);
+void pop_last_node(stack_t **head);
 
 int free_string_list(char **list);
 void free_dlistint(stack_t *head);
