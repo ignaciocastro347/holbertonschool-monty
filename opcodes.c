@@ -1,40 +1,5 @@
 #include "monty.h"
 /**
-* push_opcode - execute a push function
-* @stack: is a pointer to a doubly linked list
-* @line_number: a counter of read lines of file
-*/
-void push_opcode(stack_t **stack, unsigned int line_number)
-{
-	int n = 0, i;
-	char *token = NULL;
-
-	token = strtok(NULL, " \t\r");
-	if (!token)
-	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	for (i = 0; token[i]; i++)
-	{
-		if (token[i] == '-')
-			return;
-		if (isdigit(token[i]) == 0)
-		{
-			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-	}
-	n = atoi(token);
-	if (!n && strcmp(token, "0") != 0)
-	{
-		dprintf(STDERR_FILENO, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	add_node_to_beg(stack, n);
-}
-
-/**
  * pall_opcode - execute a pall function
  * @stack: is a pointer to a doubly linked list
  * @line_number: a counter of read lines of file
@@ -45,6 +10,36 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	print_nodes(*stack);
+}
+
+/**
+ * pint_opcode - execute a pint function
+ * @stack: is a pointer to a doubly linked list
+ * @line_number: a counter of read lines of file
+ */
+void pint_opcode(stack_t **stack, unsigned int line_number)
+{
+	if (!stack || !(*stack))
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	print_last_node(*stack);
+}
+
+/**
+ * pop_opcode - execute a pop function
+ * @stack: is a pointer to a doubly linked list
+ * @line_number: a counter of read lines of file
+ */
+void pop_opcode(stack_t **stack, unsigned int line_number)
+{
+	if (!stack || !(*stack))
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	pop_last_node(stack);
 }
 
 /**
@@ -76,4 +71,3 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 	}
 	add_last_nodes(stack);
 }
-

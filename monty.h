@@ -61,7 +61,7 @@ void pint_opcode(stack_t **stack, unsigned int line_number);
 void pop_opcode(stack_t **stack, unsigned int line_number);
 void swap_opcode(stack_t **stack, unsigned int line_number);
 void add_opcode(stack_t **stack, unsigned int line_number);
-void nop_opcode(void);
+void nop_opcode(stack_t **stack, unsigned int n);
 void (*get_op_func(char *s, unsigned int))(stack_t **, unsigned int);
 
 int free_string_list(char **list);
