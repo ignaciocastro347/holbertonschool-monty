@@ -27,7 +27,7 @@ size_t print_nodes(const stack_t *h)
  */
 stack_t *add_node_to_beg(stack_t **head, const int n)
 {
-	stack_t *new;
+	stack_t *new = NULL;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
@@ -41,6 +41,30 @@ stack_t *add_node_to_beg(stack_t **head, const int n)
 	return (new);
 }
 
+/**
+ * print_last_node - print the top element of stack
+ * @h: list
+ */
+void print_last_node(const stack_t *h)
+{
+
+	if (&h->n != NULL)
+		printf("%d\n", h->n);
+}
+
+/**
+ * pop_last_node - delete last node
+ * @head: dlinked list
+ */
+void pop_last_node(stack_t **head)
+{
+	stack_t *first = (*head);
+
+	*head = first->next;
+	if (*head)
+		(*head)-> prev = NULL;
+  free(first);
+}
 /**
  * swap_last_nodes - swap last two nodes from dlinked list
  * @head: dlinked list
@@ -80,7 +104,7 @@ void add_last_nodes(stack_t **head)
  */
 void free_dlistint(stack_t *head)
 {
-	stack_t *aux;
+	stack_t *aux = NULL;
 
 	while (head)
 	{
