@@ -50,7 +50,7 @@ int count_tokens(char *, char *);
 size_t print_nodes(const stack_t *stack);
 stack_t *add_node_to_end(stack_t **stack, const int n);
 stack_t *add_node_to_beg(stack_t **satck, const int n);
-void swap_last_nodes(stack_t **head);
+void swap_last_nodes(stack_t *head);
 void add_last_nodes(stack_t **head);
 void print_last_node(const stack_t *h);
 void pop_last_node(stack_t **head);

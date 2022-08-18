@@ -54,7 +54,7 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	swap_last_nodes(stack);
+	swap_last_nodes(*stack);
 }
 
 /**

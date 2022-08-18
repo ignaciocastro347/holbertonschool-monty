@@ -69,16 +69,13 @@ void pop_last_node(stack_t **head)
  * swap_last_nodes - swap last two nodes from dlinked list
  * @head: dlinked list
  */
-void swap_last_nodes(stack_t **head)
+void swap_last_nodes(stack_t *head)
 {
-	stack_t *first = *head;
-	stack_t *second = (*head)->next;
-	stack_t *third = second->next;
+	stack_t *first = head;
+	stack_t *second = head->next;
+	int temp;
 
-	third->prev = second->prev;
-	first->prev = first->next;
-	first->next = second->next;
-	second->prev = NULL;
-	second->next = third->prev;
-	*head = second;
+	temp = first->n;
+	first->n = second->n;
+	second->n = temp;
 }
